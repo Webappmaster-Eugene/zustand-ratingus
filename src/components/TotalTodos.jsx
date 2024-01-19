@@ -1,9 +1,8 @@
 import { Text } from '@chakra-ui/react';
+import {useTodos} from "../store.js";
 
-const TotalTodos = () => {
-  const count = 2;
+export const TotalTodos = () => {
+  const todosLength = useTodos((state) => state.todosCount());
 
-  return <Text fontWeight="bold">Total: {count}</Text>;
+  return <Text fontWeight="bold">Total: {todosLength}</Text>;
 };
-
-export { TotalTodos };

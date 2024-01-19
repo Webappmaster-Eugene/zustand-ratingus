@@ -14,10 +14,10 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "^7.10.2",
-    "nanoid": "^4.0.0",
+    "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zustand": "^4.1.5"
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

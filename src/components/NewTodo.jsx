@@ -11,12 +11,15 @@ import {
   Input,
 } from '@chakra-ui/react';
 import { useRef } from 'react';
+import {useTodos} from "../store.js";
 
 const NewTodo = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const ref = useRef();
+  const {addTodo} = useTodos((state) => state);
 
-  const handleAddTodo = () => {
+  const handleAddTodo = (value) => {
+    addTodo(value);
     onClose();
   };
 
@@ -36,7 +39,7 @@ const NewTodo = () => {
             <Input
               placeholder="Type here..."
               ref={ref}
-              onKeyDown={(e) => e.key === 'Enter' && handleAddTodo()}
+              onKeyDown={(e) => e.key === 'Enter' && handleAddTodo(ref.current.value)}
               autoFocus
             />
           </DrawerBody>
@@ -45,7 +48,7 @@ const NewTodo = () => {
             <Button variant="outline" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={handleAddTodo}>
+            <Button colorScheme="blue" onClick={(e) => handleAddTodo(ref.current.value)}>
               Save
             </Button>
           </DrawerFooter>
